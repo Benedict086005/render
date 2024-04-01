@@ -31,5 +31,8 @@ RUN pip install python-dotenv
 COPY .env /myapp/.env
 
 # Set the entry point command to run Gunicorn and start the Django application
-ENTRYPOINT ["python", "-m", "dotenv", "-f", ".env", "gunicorn", "core.wsgi", "-b", "0.0.0.0:8000"]
+#ENTRYPOINT ["python", "-m", "dotenv", "-f", ".env", "gunicorn", "core.wsgi", "-b", "0.0.0.0:8000"]
+
+# Set the entry point command to run Gunicorn and start the Django application
+ENTRYPOINT ["gunicorn", "--env", ".env", "core.wsgi", "-b", "0.0.0.0:8000"]
 
