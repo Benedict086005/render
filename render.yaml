@@ -8,7 +8,9 @@ services:
     plan: free
     envVars:
       - key: DEBUG
-        sync: false
+        sync: False
+      - key: SECRET_KEY
+        sync: secret_key
     region: oregon
     dockerContext: .
     dockerfilePath: ./Dockerfile
